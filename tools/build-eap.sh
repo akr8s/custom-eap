@@ -41,7 +41,6 @@ cd /opt/jboss/eap
 
 # To apply this update  
 bin/jboss-cli.sh "patch apply /opt/jboss/jboss-eap-7.2.3-patch.zip"
-bin/jboss-cli.sh --file=/opt/jboss/tools/cli/clear-patch-history.cli
 
 rm -f /opt/jboss/jboss-*.zip
 
