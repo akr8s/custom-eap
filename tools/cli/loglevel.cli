@@ -1,0 +1,6 @@
+/subsystem=logging/root-logger=ROOT:change-root-log-level(level=${env.ROOT_LOGLEVEL:INFO})
+
+/subsystem=logging/root-logger=ROOT:remove-handler(name="FILE")
+/subsystem=logging/periodic-rotating-file-handler=FILE:remove
+
+/subsystem=logging/console-handler=CONSOLE:undefine-attribute(name=level)

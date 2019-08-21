@@ -1,0 +1,3 @@
+embed-server --server-config=standalone-ha.xml --std-out=echo
+run-batch --file=/opt/jboss/tools/cli/loglevel.cli
+stop-embedded-server
