@@ -1,0 +1,1 @@
+/core-service=vault:add(vault-options=[("KEYSTORE_URL" => "/opt/jboss/eap/vault/vault.keystore"),("KEYSTORE_PASSWORD" => "MASK-3QeFu9bXo9YaB/MCB/Dg7a"),("KEYSTORE_ALIAS" => "vault"),("SALT" => "qianhai1"),("ITERATION_COUNT" => "120"),("ENC_FILE_DIR" => "/opt/jboss/eap/vault/")])
