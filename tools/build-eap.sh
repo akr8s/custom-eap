@@ -10,8 +10,8 @@ echo "EAP from [download]: $EAP_DIST"
 
 cd /opt/jboss/
 
-curl -O http://192.168.252.128/repos/jboss-eap-7.2.0.zip
-curl -O http://192.168.252.128/repos/jboss-eap-7.2.3-patch.zip
+curl -O $EAP_DIST
+curl -O $EAP_PATCH
 
 
 unzip jboss-eap-$EAP_VERSION.zip
@@ -40,7 +40,7 @@ cp /opt/jboss/tools/databases/oracle/module.xml .
 cd /opt/jboss/eap
 
 # To apply this update  
-bin/jboss-cli.sh "patch apply /opt/jboss/jboss-eap-7.2.3-patch.zip"
+bin/jboss-cli.sh "patch apply /opt/jboss/jboss-eap-$EAP_PATCH_VERSION-patch.zip"
 
 rm -f /opt/jboss/jboss-*.zip
 

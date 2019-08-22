@@ -3,6 +3,7 @@
 
 FROM registry.redhat.io/redhat-openjdk-18/openjdk18-openshift:latest
 ENV EAP_VERSION 7.2.0
+ENV EAP_PATCH_VERSION 7.2.3
 ENV JDBC_MYSQL_VERSION 5.1.46
 
 ENV LAUNCH_JBOSS_IN_BACKGROUND 1
@@ -11,13 +12,12 @@ ENV JBOSS_HOME /opt/jboss/eap
 ENV LANG en_US.UTF-8
 
 
-ARG EAP_DIST=jboss-eap-7.2.0.zip
-ARG EAP_PATCH=jboss-eap-7.2.3-patch.zip
+ARG EAP_DIST=http://192.168.252.128/repos/jboss-eap-7.2.0.zip
+ARG EAP_PATCH=http://192.168.252.128/repos/jboss-eap-7.2.3-patch.zip
 ARG DB_PASSWORD=
 
 
 USER root
-
 
 
 ADD tools /opt/jboss/tools
