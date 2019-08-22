@@ -1,10 +1,8 @@
 /subsystem=datasources/data-source=databaseDS: add(jndi-name=java:jboss/datasources/databaseDS,enabled=true,use-java-context=true,use-ccm=true, connection-url=jdbc:mysql://${env.DB_ADDR:mysql}:${env.DB_PORT:3306}/${env.DB_DATABASE:test}${env.JDBC_PARAMS:}, driver-name=mysql)
 /subsystem=datasources/data-source=databaseDS: write-attribute(name=user-name, value=${env.DB_USER:root})
 /subsystem=datasources/data-source=databaseDS: write-attribute(name=password, value=${env.DB_PASSWORD:password})
-/subsystem=datasources/data-source=databaseDS: write-attribute(name=validate-on-match, value=true)
-
-/subsystem=datasources/data-source=databaseDS: write-attribute(name=background-validation, value=false)
-/subsystem=datasources/data-source=databaseDS: write-attribute(name=valid-connection-checker-class-name, value=org.jboss.jca.adapters.jdbc.extensions.mysql.MySQLValidConnectionChecker)
-/subsystem=datasources/data-source=databaseDS: write-attribute(name=exception-sorter-class-name, value=org.jboss.jca.adapters.jdbc.extensions.mysql.MySQLExceptionSorter)
-
-/subsystem=datasources/jdbc-driver=mysql:add(driver-name=mysql, driver-module-name=com.mysql.jdbc, driver-xa-datasource-class-name=com.mysql.cj.jdbc.MysqlXADataSource, driver-class-name=com.mysql.cj.jdbc.Driver)
+/subsystem=datasources/data-source=databaseDS: write-attribute(name=check-valid-connection-sql, value="SELECT 1")
+/subsystem=datasources/data-source=databaseDS: write-attribute(name=background-validation, value=true)
+/subsystem=datasources/data-source=databaseDS: write-attribute(name=background-validation-millis, value=60000)
+/subsystem=datasources/data-source=databaseDS: write-attribute(name=flush-strategy, value=IdleConnections)
+/subsystem=datasources/jdbc-driver=mysql:add(driver-name=mysql, driver-module-name=com.mysql, driver-xa-datasource-class-name=com.mysql.jdbc.jdbc2.optional.MysqlXADataSource)

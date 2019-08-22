@@ -3,7 +3,7 @@
 FROM registry.redhat.io/redhat-openjdk-18/openjdk18-openshift:latest
 # FROM jboss/openjdk18-rhel7
 ENV EAP_VERSION 7.2.0
-ENV JDBC_MYSQL_VERSION 8.0.17
+ENV JDBC_MYSQL_VERSION 5.1.46
 
 ENV LAUNCH_JBOSS_IN_BACKGROUND 1
 ENV PROXY_ADDRESS_FORWARDING false
