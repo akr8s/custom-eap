@@ -47,7 +47,7 @@ rm -f /opt/jboss/jboss-*.zip
 # ADD password vault
 mkdir /opt/jboss/eap/vault
 keytool -genseckey -alias vault -storetype jceks -keyalg AES -keysize 128 -storepass vault-xiugaiwo -keypass vault-xiugaiwo -validity 730 -keystore /opt/jboss/eap/vault/vault.keystore
-/opt/jboss/eap/bin/vault.sh -k /opt/jboss/eap/vault/vault.keystore  -p vault-xiugaiwo --alias vault -b vb -a password -x dev-dev --enc-dir /opt/jboss/eap/vault/ --iteration 120 --salt qianhai1
+/opt/jboss/eap/bin/vault.sh -k /opt/jboss/eap/vault/vault.keystore  -p vault-xiugaiwo --alias vault -b vb -a password -x $DB_PASSWORD --enc-dir /opt/jboss/eap/vault/ --iteration 120 --salt qianhai1
 
 bin/jboss-cli.sh --file=/opt/jboss/tools/cli/standalone-configuration.cli
 rm -rf /opt/jboss/eap/standalone/configuration/standalone_xml_history
