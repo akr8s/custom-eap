@@ -1,4 +1,3 @@
-/subsystem=datasources/data-source=databaseDS: remove()
 /subsystem=datasources/data-source=databaseDS: add(jndi-name=java:jboss/datasources/databaseDS,enabled=true,use-java-context=true,use-ccm=true, connection-url=jdbc:mysql://${env.DB_ADDR:mysql}:${env.DB_PORT:3306}/${env.DB_DATABASE:test}${env.JDBC_PARAMS:}, driver-name=mysql)
 /subsystem=datasources/data-source=databaseDS: write-attribute(name=user-name, value=${env.DB_USER:root})
 /subsystem=datasources/data-source=databaseDS: write-attribute(name=password, value=${env.DB_PASSWORD:password})
