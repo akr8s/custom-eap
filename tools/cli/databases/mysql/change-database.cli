@@ -7,4 +7,4 @@
 /subsystem=datasources/data-source=databaseDS: write-attribute(name=valid-connection-checker-class-name, value=org.jboss.jca.adapters.jdbc.extensions.mysql.MySQLValidConnectionChecker)
 /subsystem=datasources/data-source=databaseDS: write-attribute(name=exception-sorter-class-name, value=org.jboss.jca.adapters.jdbc.extensions.mysql.MySQLExceptionSorter)
 
-/subsystem=datasources/jdbc-driver=mysql:add(driver-name=mysql, driver-module-name=com.mysql.jdbc, driver-xa-datasource-class-name=com.mysql.cj.jdbc.MysqlXADataSource, driver-class-name=com.mysql.jdbc.Driver)
+/subsystem=datasources/jdbc-driver=mysql:add(driver-name=mysql, driver-module-name=com.mysql.jdbc, driver-xa-datasource-class-name=com.mysql.cj.jdbc.MysqlXADataSource, driver-class-name=com.mysql.cj.jdbc.Driver)
