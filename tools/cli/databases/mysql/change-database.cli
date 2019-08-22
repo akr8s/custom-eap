@@ -1,9 +1,13 @@
 /subsystem=datasources/jdbc-driver=mysql:add(driver-name=mysql, driver-module-name=com.mysql.jdbc, driver-xa-datasource-class-name=com.mysql.jdbc.jdbc2.optional.MysqlXADataSource)
 
 /subsystem=datasources/data-source=databaseDS: add(jndi-name=java:jboss/datasources/databaseDS,enabled=true,use-java-context=true,use-ccm=true, connection-url=jdbc:mysql://${env.DB_ADDR:mysql}:${env.DB_PORT:3306}/${env.DB_DATABASE:test}${env.JDBC_PARAMS:}, driver-name=mysql)
-/subsystem=datasources/data-source=databaseDS: write-attribute(name=user-name, value=${env.DB_USER:root})
-/subsystem=datasources/data-source=databaseDS: write-attribute(name=password, value=${VAULT::vb::password::1})
+
 /subsystem=datasources/data-source=databaseDS: write-attribute(name=check-valid-connection-sql, value="SELECT 1")
 /subsystem=datasources/data-source=databaseDS: write-attribute(name=background-validation, value=true)
 /subsystem=datasources/data-source=databaseDS: write-attribute(name=background-validation-millis, value=60000)
 /subsystem=datasources/data-source=databaseDS: write-attribute(name=flush-strategy, value=IdleConnections)
+
+/subsystem=security/security-domain=dbEncryptedPassword/:add(cache-type=default)
+/subsystem=security/security-domain=dbEncryptedPassword/authentication=classic:add(login-modules=[{"code"=>"SecureIdentity", "flag"=>"required", "module-options"=>[("username"=>"${env.DB_USER:root}"),("password"=>"${env.DB_PASSWORD}")] }]   )
+
+/subsystem=datasources/data-source=databaseDS: write-attribute(name=security-domain, value=dbEncryptedPassword)
