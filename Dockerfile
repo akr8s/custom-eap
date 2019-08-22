@@ -14,7 +14,7 @@ ENV LANG en_US.UTF-8
 
 ARG EAP_DIST=http://192.168.252.128/repos/jboss-eap-7.2.0.zip
 ARG EAP_PATCH=http://192.168.252.128/repos/jboss-eap-7.2.3-patch.zip
-ARG DB_PASSWORD=
+# ARG DB_PASSWORD=
 
 
 USER root
