@@ -1,4 +1,4 @@
-/subsystem=datasources/jdbc-driver=mysql:add(driver-name=mysql, driver-module-name=com.mysql, driver-xa-datasource-class-name=com.mysql.jdbc.jdbc2.optional.MysqlXADataSource)
+/subsystem=datasources/jdbc-driver=mysql:add(driver-name=mysql, driver-module-name=com.mysql.jdbc, driver-xa-datasource-class-name=com.mysql.jdbc.jdbc2.optional.MysqlXADataSource)
 
 /subsystem=datasources/data-source=databaseDS: add(jndi-name=java:jboss/datasources/databaseDS,enabled=true,use-java-context=true,use-ccm=true, connection-url=jdbc:mysql://${env.DB_ADDR:mysql}:${env.DB_PORT:3306}/${env.DB_DATABASE:test}${env.JDBC_PARAMS:}, driver-name=mysql)
 /subsystem=datasources/data-source=databaseDS: write-attribute(name=user-name, value=${env.DB_USER:root})
